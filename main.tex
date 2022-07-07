@@ -1,0 +1,55 @@
+%%%%%%%%%%%%湖南大学%%%%%%%%%%%%%%
+%这里是湖南大学课程设计\LaTeX模板，版本1.0，适用于老师可接受PDF格式的论文，字体大小及样式可自行修改！
+%请使用texlive 2020及以上版本使用xelatex引擎编译此模板！
+%使用本模板出现的课程打分问题本人概不负责！
+%欢迎各位使用本模板的同学与我多多交流，E-mail:hnuzyx@outlook.com
+%%%%%%%%%%%%湖南大学%%%%%%%%%%%%%%
+\documentclass{hnureport}
+
+%-------------------------------------------------------------
+\usepackage{enumitem,fancyvrb}
+\usepackage{booktabs,multirow,longtable,makecell} % 表格相关
+\usepackage[final]{pdfpages} % 包含整页 pdf
+\usepackage{float}
+\usepackage{array}
+%% 封面和相关表格
+
+
+\renewcommand{\abstractname}{\large 摘要\\}%重定义摘要二字的大小
+%\usepackage[backend=bibtex]{biblatex}
+\usepackage[backend=biber,style=gb7714-2015]{biblatex}
+
+\bibliography{ref}
+
+\begin{document}
+%% word版，填写1-4页，转为pdf，命名为’MB202206.pdf‘，放于当前路径
+\includepdf[pages={1-4}]{MB202206.pdf}
+
+% 生成题目
+\begin{center}
+\huge{\textbf{一个设计题目}}
+\end{center}
+
+\thispagestyle{empty}
+\input{abstract.tex}%摘要
+
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+\setcounter{page}{1}
+%% 正文开始----------------------------------------------------
+\input{experiment.tex}
+
+\input{conclusion.tex}
+
+
+
+% \section*{参考文献}
+\printbibliography
+\clearpage
+
+\appendix
+
+\input{appendix.tex}
+
+\end{document}
